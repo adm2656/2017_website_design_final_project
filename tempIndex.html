@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
 
+    <style>
+        .carousel-caption{
+            color: rgb(255, 255, 255);
+        }
+        h1{
+            font-size:10vh;
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -61,42 +70,18 @@
         </div>
     </header>
 
-    
-    <div class="jumbotron">
-        <div class="container">
-            <h1 class="display-3">Contact us!!!!</h1>
-            <p>Tell us anything you want to say</p>
-        </div>
-    </div>
-
-    <div class="container">
-
-        <main role="main">
-            <div class="col-md-8 col-md-offset-2">
-                <form>
-                    <div class="form-group">
-                        <h2>
-                            <label for="Email">Email address</label>
-                        </h2>
-                        <input type="email" class="form-control is-invalid" id="Email" placeholder="Your Email address" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid Email.
-                        </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="https://cdn.arstechnica.net/wp-content/uploads/2017/09/image_large_2x.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-center">
+                        <h1>Just Ticketing</h1>
+                        <p>Go Wherever You Want.</p>
                     </div>
-                    <div class="form-group">
-                        <h2>
-                            <label for="Message">Message you want to say</label>
-                        </h2>
-                        <textarea class="form-control is-invalid" id="Message" placeholder="Anything you like to share with us." rows="5" required></textarea>
-                        <div class="invalid-feedback">
-                            Please tell us your question or response.
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                </div>
             </div>
-    </div>
-
+        </div>
     </div>
     <hr>
     </main>
