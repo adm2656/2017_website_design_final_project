@@ -63,6 +63,11 @@
 
         .video-container video.fillWidth {
             width: 100%;
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
         }
 
         .title-container {
@@ -84,13 +89,15 @@
         .title-container h3,
         .title-container h5 {
             position: relative;
-            font-weight: 300;
+            font-weight: 350;
         }
 
         .title-container h3 {
             font-size: 100px;
             line-height: 44px;
             margin: 15px 0 10px;
+            color: white;
+
         }
 
         .title-container h5 {
@@ -100,7 +107,7 @@
 
         .form-submit {
             margin: 0 auto;
-            width: 80%/* value of your choice which suits your alignment */
+            width: 80%
         }
     </style>
     <script>
@@ -166,7 +173,8 @@
                 $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
 
             });
-        }</script>
+        }
+    </script>
 </head>
 
 <body>
@@ -219,7 +227,7 @@
             <div class="video-container">
                 <div class="title-container">
                     <div class="headline">
-                        <h3 class="text-light">JOIN US NOW</h3>
+                        <h3>JOIN US NOW</h3>
                         <br>
                         <br>
                         <h5>
