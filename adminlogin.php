@@ -107,7 +107,7 @@
             }
             else{
                 echo "<script>alert('You are not administrator');</script>";
-                header("Refresh: 0; url=Index.php" );
+                header("Refresh: 0; url=index.php" );
                 session_destroy();
             }
         }

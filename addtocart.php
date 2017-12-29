@@ -32,7 +32,7 @@
             }
         }else{
             echo "<script>alert('Please login first');</script>";
-            header("Refresh: 0; url=Index.php" );
+            header("Refresh: 0; url=index.php" );
             mysqli_close($conn);
         }
     }

@@ -74,10 +74,10 @@
                     if ($pwd == $checkpwd){
                         $_SESSION['email'] = $email;
                         $_SESSION['pwd'] = $pwd;
-                        header('Location: '. 'Index.php');
+                        header('Location: '. 'index.php');
                     }else{
                         echo "<script>alert('Wrong password.');</script>";
-                        header("Refresh: 0; url=Index.php" );
+                        header("Refresh: 0; url=index.php" );
                         session_destroy();
                     }
                 }else{
@@ -93,7 +93,7 @@
             <span class="text-muted">
                 <ul class="navbar-nav">
                     <li class="list-inline-item">
-                        <a class="nav-link" href="Index.php" style="color:whitesmoke">Homepage</a>
+                        <a class="nav-link" href="index.php" style="color:whitesmoke">Homepage</a>
                     </li>
                     <li class="list-inline-item">
                         <a class="nav-link" href="Member.php" style="color:whitesmoke">Member</a>

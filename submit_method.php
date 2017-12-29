@@ -8,7 +8,7 @@
         $checksubmit = "SELECT * FROM user WHERE account = '$inputemail' and pwd = '$inputpwd'";
         if(mysqli_num_rows(mysqli_query($conn, $checksubmit))>0){
             echo "<script>alert('This account is exist, please login.');</script>";
-            header("Refresh: 0; url=Index.php");
+            header("Refresh: 0; url=index.php");
         }
         else{
             $submitsql = "INSERT INTO user (account, pwd) VALUES ('$inputemail', '$inputpwd')";
@@ -22,14 +22,14 @@
             mysqli_query($conn, $createcart);
             $_SESSION['email'] = $inputemail;
             $_SESSION['pwd'] = $inputpwd;
-            header("Refresh: 0; url=Index.php" );
+            header("Refresh: 0; url=index.php" );
         }        
     }else{
         $inputemail = $_POST['inputemail'];
         $inputpwd = $_POST['inputpwd'];
         if($_SESSION['email'] == $inputemail){
             echo "<script>alert('You already login.');</script>";
-            header("Refresh: 0; url=Index.php" );
+            header("Refresh: 0; url=index.php" );
         }
     }
 ?>
