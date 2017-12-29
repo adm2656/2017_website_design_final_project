@@ -1,3 +1,7 @@
+<?php
+    include "connection.php";
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -178,49 +182,85 @@
 </head>
 
 <body>
-    <header>
-        <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4">
-                    <a class="navbar-brand" href="tempIndex.html" style="color:whitesmoke">
-                        <h4 class="text-white">A Simple Ticketing Website</h4>
-                    </a>
-                    <span class="text-muted">
-                        <ul class="navbar-nav">
-                            <li class="list-inline-item">
-                                <a class="nav-link" href="#" style="color:whitesmoke">Member</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="nav-link" href="#" style="color:whitesmoke">Cart</a>
-                            </li>
+<header>
+<div class="pos-f-t">
+<nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                            <li class="list-inline-item">
-                                <a class="nav-link" href="tempSubmit.html" style="color:whitesmoke">Submit</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="nav-link" href="tempContact.html" style="color:whitesmoke">Contact</a>
-                            </li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
-            <nav class="navbar navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- add judgement for login or not after it's complete-->
-                <form class="form-inline navbar-form " action="">
+        <!-- member login judgement php -->
+        <?php
+            if(!isset($_SESSION['email'], $_SESSION['pwd'])){
+                echo'<form class="form-inline navbar-form" action="index.php" method="POST">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Your email">
-                        <input type="password" class="form-control mx-sm-2" id="pwd" placeholder="Your password">
-                        <input type="submit" class="btn btn-success" value="Login">
+                        <input type="email" class="form-control form-control-sm" name="email" placeholder="Your email" required>
+                        <input type="password" class="form-control form-control-sm mx-sm-2" name="pwd" placeholder="Your password" required>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Login">
                     </div>
-                </form>
-            </nav>
+                </form>';
+            }else{
+                echo'<form class="form-inline navbar-form" action="logout.php" method="POST">
+                    <div class="form-group">
+                        <input type="text" readonly class="form-control-plaintext text-light col-md-9" value="'.$_SESSION['email']. '" readonly>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Logout">
+                    </div>
+                </form>';
+            }
+
+            if(isset($_POST['email'], $_POST['pwd'])){
+                $email = $_POST['email'];
+                $pwd = $_POST['pwd'];
+                
+                $loginsql = "SELECT * FROM user WHERE account = '$email'";
+
+                if(mysqli_num_rows(mysqli_query($conn,$loginsql))>0){
+                    $row = mysqli_fetch_array(mysqli_query($conn, $loginsql));
+                    $checkpwd = $row['pwd'];
+                    if ($pwd == $checkpwd){
+                        $_SESSION['email'] = $email;
+                        $_SESSION['pwd'] = $pwd;
+                        header('Location: '. 'Index.php');
+                    }else{
+                        echo "<script>alert('Wrong password.');</script>";
+                        header("Refresh: 0; url=Index.php" );
+                        session_destroy();
+                    }
+                }else{
+                    echo "<script>alert('You are not one of us, join us by going to the submit page.');</script>";
+                    header("Refresh: 0; url=Submit.php" );
+                    session_destroy();
+                }
+            }
+        ?>
+    </nav>
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <span class="text-muted">
+                <ul class="navbar-nav">
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="Index.php" style="color:whitesmoke">Homepage</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="Member.php" style="color:whitesmoke">Member</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="Cart.php" style="color:whitesmoke">Cart</a>
+                    </li>
+
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="Submit.php" style="color:whitesmoke">Submit</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="nav-link" href="Contact.php" style="color:whitesmoke">Contact</a>
+                    </li>
+                </ul>
+            </span>
         </div>
-    </header>
+    </div>
+    
+</header>
 
     <main role="main">
         <div class="homepage-hero-module">
@@ -232,11 +272,11 @@
                         <br>
                         <h5>
                             <div class="container">
-                                <form class="form-submit" style="width: 30%;">
+                                <form class="form-submit" style="width: 30%;" action="submit_method.php" method="POST">
                                     <label for="inputEmail" class="sr-only">Email address</label>
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                    <input type="email" name="inputemail" class="form-control" placeholder="Email address" required autofocus>
                                     <label for="inputPassword" class="sr-only">Password</label>
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="inputpwd" class="form-control" placeholder="Password" required>
                                     <br>
                                     <button class="btn btn-lg btn-light btn-block" type="submit">Submit</button>
                                 </form>
@@ -259,13 +299,15 @@
         <hr>
     </main>
     <footer class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <p>&copy; CCUMIS 2017</p>
-                </div>
-                <div class="col-md-2"><a href="#">Login as Administer</a></div>
+        <div class="row">
+            <div class="col-md-9">
+                <p>&copy; CCUMIS 2017</p>
             </div>
-        </footer>
+            <div class="col-md-3">
+                <a href="adminlogin.php">Login as administrator</a>
+            </div>
+        </div>
+    </footer>
     <!--Do not change thing under this comment-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
