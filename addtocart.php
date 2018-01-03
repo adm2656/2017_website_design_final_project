@@ -24,7 +24,10 @@
                 header("Refresh: 0; url=Cart.php" );
                 mysqli_close($conn);
             }else{
-                $addtocart = "INSERT INTO cart_info (cart_id, ticket_id, amount) VALUE ('$user_id', $ticket_id, $select)";
+                $cart = "SELECT cart_id FROM cart WHERE owner_id = '$user_id'";
+                $getcartid = mysqli_fetch_array(mysqli_query($conn, $cart));
+                $cart_id = $getcartid['cart_id'];
+                $addtocart = "INSERT INTO cart_info (cart_id, ticket_id, amount) VALUE ('$cart_id', $ticket_id, $select)";
                 mysqli_query($conn, $addtocart);
                 echo "<script>alert('Add success');</script>";
                 header("Refresh: 0; url=Cart.php" );
