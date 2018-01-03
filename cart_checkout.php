@@ -14,7 +14,11 @@
     $ticket_id = $getcartinfo["ticket_id"];
     $amount = $getcartinfo["amount"];
 
-    $checkout = "DELETE FROM cart_info WHERE cart_id = '$user_id' and cart_info_id = '$checkout_id'";
+    $cart = "SELECT cart_id FROM cart WHERE owner_id = '$user_id'";
+    $getcartid = mysqli_fetch_array(mysqli_query($conn, $cart));
+    $cart_id = $getcartid['cart_id'];
+
+    $checkout = "DELETE FROM cart_info WHERE cart_id = '$cart_id' and cart_info_id = '$checkout_id'";
     mysqli_query($conn, $checkout);
 
     $addtorecord = "INSERT INTO record (buyer_id, ticket_id, amount) VALUES ('$user_id', '$ticket_id', $amount)";
