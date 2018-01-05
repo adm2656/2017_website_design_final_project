@@ -142,18 +142,20 @@
     </div>
 
     </div>
-    <hr>
     </main>
-    <footer class="container">
+    <footer class = "bg-dark">
+    <hr>
+        <div class ="container">
             <div class="row">
                 <div class="col-md-9">
-                    <p>&copy; CCUMIS 2017</p>
+                    <p class = "text-light">&copy; CCUMIS 2017</p>
                 </div>
                 <div class="col-md-3">
-                    <a href="adminlogin.php">Login as administrator</a>
+                    <a href="adminlogin.php" class="text-light">Login as administrator</a>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
     <!--Do not change thing under this comment-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

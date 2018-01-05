@@ -295,16 +295,17 @@
                 </div>
             </div>
         </div>
-
-        <hr>
     </main>
-    <footer class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <p>&copy; CCUMIS 2017</p>
-            </div>
-            <div class="col-md-3">
-                <a href="adminlogin.php">Login as administrator</a>
+    <footer class = "bg-dark">
+    <hr>
+        <div class ="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p class = "text-light">&copy; CCUMIS 2017</p>
+                </div>
+                <div class="col-md-3">
+                    <a href="adminlogin.php" class="text-light">Login as administrator</a>
+                </div>
             </div>
         </div>
     </footer>
