@@ -1,6 +1,18 @@
 <?php
     include "connection.php";
     session_start();
+
+    if(isset($_POST["email"], $_POST["message"])){
+        $sender = $_POST["email"];
+        $content = $_POST["message"];
+
+        $sql = "INSERT INTO contact (sender, content) VALUES ('$sender', '$content')";
+        mysqli_query($conn, $sql);
+
+        echo "<script>alert('Thanks for your contact, we will reply soon.');</script>";
+        header("Refresh: 0; url=index.php" );
+        mysqli_close($conn);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,17 +178,3 @@
 </body>
 
 </html>
-
-<?php
-    if(isset($_POST["email"], $_POST["message"])){
-        $sender = $_POST["email"];
-        $content = $_POST["message"];
-
-        $sql = "INSERT INTO contact (sender, content) VALUES ('$sender', '$content')";
-        mysqli_query($conn, $sql);
-
-        echo "<script>alert('Thanks for your contact, we will reply soon.');</script>";
-        header("Refresh: 0; url=index.php" );
-        mysqli_close($conn);
-    }
-?>
