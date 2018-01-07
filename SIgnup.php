@@ -229,7 +229,7 @@
                     }
                 }else{
                     echo "<script>alert('You are not one of us, join us by going to the submit page.');</script>";
-                    header("Refresh: 0; url=Submit.php" );
+                    header("Refresh: 0; url=Signup.php" );
                     session_destroy();
                 }
             }
@@ -250,7 +250,7 @@
                     </li>
 
                     <li class="list-inline-item">
-                        <a class="nav-link" href="Submit.php" style="color:whitesmoke">Submit</a>
+                        <a class="nav-link" href="Signup.php" style="color:whitesmoke">Signup</a>
                     </li>
                     <li class="list-inline-item">
                         <a class="nav-link" href="Contact.php" style="color:whitesmoke">Contact</a>
@@ -272,7 +272,7 @@
                         <br>
                         <h5>
                             <div class="container">
-                                <form class="form-submit" style="width: 30%;" action="submit_method.php" method="POST">
+                                <form class="form-submit" style="width: 30%;" action="signup_method.php" method="POST">
                                     <label for="inputEmail" class="sr-only">Email address</label>
                                     <input type="email" name="inputemail" class="form-control" placeholder="Email address" required autofocus>
                                     <label for="inputPassword" class="sr-only">Password</label>
