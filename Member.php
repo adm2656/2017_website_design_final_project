@@ -176,12 +176,12 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="headingOne">
                         <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#edit" aria-expanded="true" aria-controls="collapseOne">
+                            <a data-toggle="collapse" href="#purchase" aria-expanded="true" aria-controls="collapseOne">
                                 <h3 class="text-dark">Purchase Record</h3>
                             </a>
                         </h5>
                     </div>
-                    <div id="edit" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="purchase" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">';
                             $purchase = "SELECT ticket_id, amount FROM record WHERE buyer_id = '$user_id'";
                             $getpurchase = mysqli_query($conn, $purchase);
