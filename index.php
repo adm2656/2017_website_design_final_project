@@ -57,7 +57,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    
+                    <!-- 判斷會員登入與否 -->
                     <?php
                         if(!isset($_SESSION['email'], $_SESSION['pwd'])){
                             echo'<form class="form-inline navbar-form" action="index.php" method="POST">
@@ -102,7 +102,7 @@
                         }
                     ?>
                 </nav>
-             
+                <!-- 頁面連結 -->
                 <div class="collapse" id="navbarToggleExternalContent">
                     <div class="bg-dark p-4">
                         <span class="text-muted">
@@ -130,9 +130,9 @@
                 
         </header>
                
-      
+        <!-- 主頁面 -->
         <main>
-           
+            <!-- 照片轉換 -->
             <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -249,7 +249,13 @@
                 </div>
             </div>
         </footer>
-        
+        <!--Do not change thing under this comment-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
     </body>
 
     </html>
