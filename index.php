@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     include "connection.php";
 
     $sql = "SELECT * FROM ticket ORDER BY ticket_id";
@@ -57,7 +57,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <!-- member login judgement php -->
+                    
                     <?php
                         if(!isset($_SESSION['email'], $_SESSION['pwd'])){
                             echo'<form class="form-inline navbar-form" action="index.php" method="POST">
@@ -102,6 +102,7 @@
                         }
                     ?>
                 </nav>
+             
                 <div class="collapse" id="navbarToggleExternalContent">
                     <div class="bg-dark p-4">
                         <span class="text-muted">
@@ -128,8 +129,10 @@
                 </div>
                 
         </header>
-
+               
+      
         <main>
+           
             <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -246,13 +249,7 @@
                 </div>
             </div>
         </footer>
-        <!--Do not change thing under this comment-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-            crossorigin="anonymous"></script>
+        
     </body>
 
     </html>
