@@ -19,6 +19,7 @@
         <title>A Simple Ticketing Website</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
             crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 
         <style>
             .carousel-caption {
@@ -26,6 +27,8 @@
             }
             h1 {
                 font-size: 8vh;
+                font-family: 'Poiret One', cursive;
+                font-weight:bold;
             }
             .table-borderless td,.table-borderless th {
                 border: 0;
@@ -93,7 +96,7 @@
                                 }
                             }else{
                                 echo "<script>alert('You are not one of us, join us by going to the submit page.');</script>";
-                                header("Refresh: 0; url=Signup.php" );
+                                header("Refresh: 0; url=Submit.php" );
                                 session_destroy();
                             }
                         }
@@ -114,7 +117,7 @@
                                 </li>
 
                                 <li class="list-inline-item">
-                                    <a class="nav-link" href="Signup.php" style="color:whitesmoke">Signup</a>
+                                    <a class="nav-link" href="Submit.php" style="color:whitesmoke">Submit</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a class="nav-link" href="Contact.php" style="color:whitesmoke">Contact</a>
@@ -231,17 +234,15 @@
                     </tbody>
                 </table>
             </div>
+            <hr>
         </main>
-        <footer class = "bg-dark">
-        <hr>
-            <div class ="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <p class = "text-light">&copy; CCUMIS 2017</p>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="adminlogin.php" class="text-light">Login as administrator</a>
-                    </div>
+        <footer class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <p>&copy; CCUMIS 2017</p>
+                </div>
+                <div class="col-md-3">
+                    <a href="adminlogin.php">Login as administrator</a>
                 </div>
             </div>
         </footer>
