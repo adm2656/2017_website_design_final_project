@@ -105,7 +105,7 @@
                                 }
                             }else{
                                 echo "<script>alert('You are not one of us, join us by going to the submit page.');</script>";
-                                header("Refresh: 0; url=Submit.php" );
+                                header("Refresh: 0; url=Signup.php" );
                                 session_destroy();
                             }
                         }
@@ -129,7 +129,7 @@
                                 </li>
 
                                 <li class="list-inline-item">
-                                    <a class="nav-link" href="Submit.php" style="color:whitesmoke">Submit</a>
+                                    <a class="nav-link" href="Signup.php" style="color:whitesmoke">Submit</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a class="nav-link" href="Contact.php" style="color:whitesmoke">Contact</a>
