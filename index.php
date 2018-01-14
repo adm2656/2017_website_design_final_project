@@ -28,6 +28,9 @@
                 color: rgb(255, 255, 255);
 
             }
+	    h1 {
+                font-size: 8vh;
+            }
             .table-borderless td,.table-borderless th {
 
                 border: 0;
