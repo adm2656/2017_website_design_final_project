@@ -28,15 +28,6 @@
                 color: rgb(255, 255, 255);
 
             }
-
-            h1 {
-
-                font-size: 8vh;
-                font-family: 'Poiret One', cursive;
-                font-weight:bold;
-
-            }
-
             .table-borderless td,.table-borderless th {
 
                 border: 0;
@@ -69,7 +60,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <!-- §PÂ_·|­ûµn¤J»P§_ -->
+                    <!-- Â§PÃ‚_Â·|Â­Ã»ÂµnÂ¤JÂ»PÂ§_ -->
 
                     <?php
                         if(!isset($_SESSION['email'], $_SESSION['pwd'])){
@@ -118,7 +109,7 @@
                     ?>
                 </nav>
 
-                <!-- ­¶­±³sµ² -->
+                <!-- Â­Â¶Â­Â±Â³sÂµÂ² -->
 
                 <div class="collapse" id="navbarToggleExternalContent">
                     <div class="bg-dark p-4">
@@ -148,9 +139,9 @@
         </header>
                
 
-        <!-- ¥D­¶­± -->
+        <!-- Â¥DÂ­Â¶Â­Â± -->
         <main>
-            <!-- ·Ó¤ùÂà´« -->
+            <!-- Â·Ã“Â¤Ã¹Ã‚Ã Â´Â« -->
             <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
