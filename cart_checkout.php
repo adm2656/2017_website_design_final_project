@@ -23,7 +23,7 @@
 
     $addtorecord = "INSERT INTO record (buyer_id, ticket_id, amount) VALUES ('$user_id', '$ticket_id', $amount)";
     mysqli_query($conn, $addtorecord);
-
+    
     echo "<script>alert('Chcekout success');</script>";
     header("Refresh: 0; url=Member.php" );
     mysqli_close($conn);

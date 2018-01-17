@@ -1,7 +1,3 @@
-<?php
-    include "connection.php";
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,71 +110,7 @@
             width: 80%
         }
     </style>
-    <script>
-        //jQuery is required to run this code
-        $(document).ready(function () {
 
-            scaleVideoContainer();
-
-            initBannerVideoSize('.video-container .poster img');
-            initBannerVideoSize('.video-container .filter');
-            initBannerVideoSize('.video-container video');
-
-            $(window).on('resize', function () {
-                scaleVideoContainer();
-                scaleBannerVideoSize('.video-container .poster img');
-                scaleBannerVideoSize('.video-container .filter');
-                scaleBannerVideoSize('.video-container video');
-            });
-
-        });
-
-        function scaleVideoContainer() {
-
-            var height = $(window).height() + 5;
-            var unitHeight = parseInt(height) + 'px';
-            $('.homepage-hero-module').css('height', unitHeight);
-
-        }
-
-        function initBannerVideoSize(element) {
-
-            $(element).each(function () {
-                $(this).data('height', $(this).height());
-                $(this).data('width', $(this).width());
-            });
-
-            scaleBannerVideoSize(element);
-
-        }
-
-        function scaleBannerVideoSize(element) {
-
-            var windowWidth = $(window).width(),
-                windowHeight = $(window).height() + 5,
-                videoWidth,
-                videoHeight;
-
-            console.log(windowHeight);
-
-            $(element).each(function () {
-                var videoAspectRatio = $(this).data('height') / $(this).data('width');
-
-                $(this).width(windowWidth);
-
-                if (windowWidth < 1000) {
-                    videoHeight = windowHeight;
-                    videoWidth = videoHeight / videoAspectRatio;
-                    // $(this).css({'margin-top' : 0, 'margin-left' : -(videoWidth - windowWidth) / 2 + 'px'});
-
-                    $(this).width(videoWidth).height(videoHeight);
-                }
-
-                $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
-
-            });
-        }
-    </script>
 </head>
 
 <body>
@@ -188,52 +120,8 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button>        
 
-        <!-- member login judgement php -->
-        <?php
-            if(!isset($_SESSION['email'], $_SESSION['pwd'])){
-                echo'<form class="form-inline navbar-form" action="index.php" method="POST">
-                    <div class="form-group">
-                        <input type="email" class="form-control form-control-sm" name="email" placeholder="Your email" required>
-                        <input type="password" class="form-control form-control-sm mx-sm-2" name="pwd" placeholder="Your password" required>
-                        <input type="submit" class="btn btn-primary btn-sm" value="Login">
-                    </div>
-                </form>';
-            }else{
-                echo'<form class="form-inline navbar-form" action="logout.php" method="POST">
-                    <div class="form-group">
-                        <input type="text" readonly class="form-control-plaintext text-light col-md-9" value="'.$_SESSION['email']. '" readonly>
-                        <input type="submit" class="btn btn-primary btn-sm" value="Logout">
-                    </div>
-                </form>';
-            }
-
-            if(isset($_POST['email'], $_POST['pwd'])){
-                $email = $_POST['email'];
-                $pwd = $_POST['pwd'];
-                
-                $loginsql = "SELECT * FROM user WHERE account = '$email'";
-
-                if(mysqli_num_rows(mysqli_query($conn,$loginsql))>0){
-                    $row = mysqli_fetch_array(mysqli_query($conn, $loginsql));
-                    $checkpwd = $row['pwd'];
-                    if ($pwd == $checkpwd){
-                        $_SESSION['email'] = $email;
-                        $_SESSION['pwd'] = $pwd;
-                        header('Location: '. 'index.php');
-                    }else{
-                        echo "<script>alert('Wrong password.');</script>";
-                        header("Refresh: 0; url=index.php" );
-                        session_destroy();
-                    }
-                }else{
-                    echo "<script>alert('You are not one of us, join us by going to the submit page.');</script>";
-                    header("Refresh: 0; url=Signup.php" );
-                    session_destroy();
-                }
-            }
-        ?>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
@@ -316,69 +204,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
-    <script>$(document).ready(function () {
 
-            scaleVideoContainer();
-
-            initBannerVideoSize('.video-container .poster img');
-            initBannerVideoSize('.video-container .filter');
-            initBannerVideoSize('.video-container video');
-
-            $(window).on('resize', function () {
-                scaleVideoContainer();
-                scaleBannerVideoSize('.video-container .poster img');
-                scaleBannerVideoSize('.video-container .filter');
-                scaleBannerVideoSize('.video-container video');
-            });
-
-        });
-
-        function scaleVideoContainer() {
-
-            var height = $(window).height() + 5;
-            var unitHeight = parseInt(height) + 'px';
-            $('.homepage-hero-module').css('height', unitHeight);
-
-        }
-
-        function initBannerVideoSize(element) {
-
-            $(element).each(function () {
-                $(this).data('height', $(this).height());
-                $(this).data('width', $(this).width());
-            });
-
-            scaleBannerVideoSize(element);
-
-        }
-
-        function scaleBannerVideoSize(element) {
-
-            var windowWidth = $(window).width(),
-                windowHeight = $(window).height() + 5,
-                videoWidth,
-                videoHeight;
-
-            // console.log(windowHeight);
-
-            $(element).each(function () {
-                var videoAspectRatio = $(this).data('height') / $(this).data('width');
-
-                $(this).width(windowWidth);
-
-                if (windowWidth < 1000) {
-                    videoHeight = windowHeight;
-                    videoWidth = videoHeight / videoAspectRatio;
-                    $(this).css({ 'margin-top': 0, 'margin-left': -(videoWidth - windowWidth) / 2 + 'px' });
-
-                    $(this).width(videoWidth).height(videoHeight);
-                }
-
-                $('.homepage-hero-module .video-container video').addClass('fadeIn animated');
-
-            });
-        }
-    </script>
 </body>
 
 </html>
