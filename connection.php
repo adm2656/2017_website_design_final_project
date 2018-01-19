@@ -1,8 +1,8 @@
 <?php
 
-    $servername = "140.123.175.101";//上線後改為localhost
-    $username = "team10";
-    $password = "juice";
+    $servername = "127.0.0.1";
+    $username = "root";
+    $password = "";
     $dbname = "team10";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);
