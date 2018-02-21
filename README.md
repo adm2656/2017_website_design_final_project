@@ -3,6 +3,7 @@
 ### Ngnix + php + mysql + my shitting coding skill
 
 - A simple ticketing website which can be managed from backstage
-:::warning
+
+:::info
 not prevent from SQL injection
 :::
