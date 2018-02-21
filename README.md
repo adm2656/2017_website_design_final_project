@@ -5,5 +5,5 @@
 - A simple ticketing website which can be managed from backstage
 
 :::info
-not prevent from SQL injection
+備註
 :::
