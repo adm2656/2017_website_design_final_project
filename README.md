@@ -4,6 +4,4 @@
 
 - A simple ticketing website which can be managed from backstage
 
-:::info
-備註
-:::
+> Not prevent from SQL injection
