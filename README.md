@@ -5,3 +5,5 @@
 - A simple ticketing website which can be managed from backstage
 
 > Not prevent from SQL injection
+
+[Preview of this website](./Preview.pdf)
