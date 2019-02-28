@@ -5,5 +5,6 @@
 - A simple ticketing website which can be managed from backstage
 
 > Not prevent from SQL injection
+> Wait for rewriting in prepared statement
 
 [Preview of this website](./Preview.pdf)
