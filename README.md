@@ -2,7 +2,8 @@
 
 ### Ngnix + php + mysql
 
-- A simple ticketing website which can be managed from backstage
+- A simple ticketing website which can be managed from backstage.
+- Including membership, shopping cart, Q&A
 
 > Not prevent from SQL injection
 
